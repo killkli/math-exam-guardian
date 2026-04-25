@@ -101,12 +101,11 @@ function buildFilterUI() {
     yearContainer.appendChild(btn);
   });
 
-  // Difficulty chips
+  // Difficulty chips — no direct listener; event is handled by delegation listener in bindEvents()
   const diffContainer = $('filter-difficulty');
   diffLabels.forEach(([val, label]) => {
     if (diffs.includes(val)) {
       const btn = makeChip(val, label);
-      btn.addEventListener('click', () => toggleSet('difficulty', val, btn));
       diffContainer.appendChild(btn);
     }
   });
