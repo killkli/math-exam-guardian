@@ -3934,13 +3934,12 @@
       "type": "choice",
       "subtype": "geometry",
       "difficulty": "basic",
-      "question_text": "下列選項中的圖形有一個為線對稱圖形，判斷此圖形為何？",
-      "options": [
-        "≈ 符號",
-        "巨蟹座符號",
-        "天蠍座符號",
-        "雙魚座符號"
-      ],
+      "options": {
+        "A": "≈ 符號",
+        "B": "巨蟹座符號",
+        "C": "天蠍座符號",
+        "D": "雙魚座符號"
+      },
       "answer": "D",
       "available": true,
       "figure_needed": false,
@@ -3951,20 +3950,25 @@
       ],
       "notes": "題目取自107年會考選擇題第1題",
       "year": 107,
-      "options_figure_desc": ""
+      "options_figure_desc": "",
+      "id": "107-1",
+      "number": 1,
+      "question": "下列選項中的圖形有一個為線對稱圖形，判斷此圖形為何？",
+      "figure_type": "none",
+      "page_source": "",
+      "quality_status": "PASS"
     },
     {
       "question_number": 2,
       "type": "choice",
       "subtype": "computation",
       "difficulty": "basic",
-      "question_text": "已知 $a=\\left(\\frac{3}{14}-\\frac{2}{15}\\right)-\\frac{1}{16}$，$b=\\frac{3}{14}-\\left(\\frac{2}{15}-\\frac{1}{16}\\right)$，$c=\\frac{3}{14}-\\frac{2}{15}-\\frac{1}{16}$，判斷下列敘述何者正確？",
-      "options": [
-        "$a=c$，$b=c$",
-        "$a=c$，$b\\neq c$",
-        "$a\\neq c$，$b=c$",
-        "$a\\neq c$，$b\\neq c$"
-      ],
+      "options": {
+        "A": "$a=c$，$b=c$",
+        "B": "$a=c$，$b\\neq c$",
+        "C": "$a\\neq c$，$b=c$",
+        "D": "$a\\neq c$，$b\\neq c$"
+      },
       "answer": "B",
       "available": true,
       "figure_needed": false,
@@ -3976,20 +3980,25 @@
       ],
       "notes": "已修正 LaTeX 格式",
       "year": 107,
-      "options_figure_desc": ""
+      "options_figure_desc": "",
+      "id": "107-2",
+      "number": 2,
+      "question": "已知 $a=\\left(\\frac{3}{14}-\\frac{2}{15}\\right)-\\frac{1}{16}$，$b=\\frac{3}{14}-\\left(\\frac{2}{15}-\\frac{1}{16}\\right)$，$c=\\frac{3}{14}-\\frac{2}{15}-\\frac{1}{16}$，判斷下列敘述何者正確？",
+      "figure_type": "none",
+      "page_source": "",
+      "quality_status": "PASS"
     },
     {
       "question_number": 3,
       "type": "choice",
       "subtype": "function",
       "difficulty": "medium",
-      "question_text": "已知坐標平面上，一次函數 $y=3x+a$ 的圖形通過點 $(0, -4)$，求 $a$ 的值為何？",
-      "options": [
-        "$-12$",
-        "$-4$",
-        "$4$",
-        "$12$"
-      ],
+      "options": {
+        "A": "$-12$",
+        "B": "$-4$",
+        "C": "$4$",
+        "D": "$12$"
+      },
       "answer": "B",
       "available": true,
       "figure_needed": false,
@@ -4001,20 +4010,25 @@
       ],
       "notes": "已修正 LaTeX 格式",
       "year": 107,
-      "options_figure_desc": ""
+      "options_figure_desc": "",
+      "id": "107-3",
+      "number": 3,
+      "question": "已知坐標平面上，一次函數 $y=3x+a$ 的圖形通過點 $(0, -4)$，求 $a$ 的值為何？",
+      "figure_type": "none",
+      "page_source": "",
+      "quality_status": "PASS"
     },
     {
       "question_number": 4,
       "type": "choice",
       "subtype": "number_theory",
       "difficulty": "medium",
-      "question_text": "已知某文具店販售的筆記本每本售價均相等且超過10元，小錦和小勳在此文具店分別購買若干本筆記本。若小錦購買筆記本的花費為36元，則小勳購買筆記本的花費可能為下列何者？",
-      "options": [
-        "16 元",
-        "27 元",
-        "30 元",
-        "48 元"
-      ],
+      "options": {
+        "A": "16 元",
+        "B": "27 元",
+        "C": "30 元",
+        "D": "48 元"
+      },
       "answer": "D",
       "available": true,
       "figure_needed": false,
@@ -4025,20 +4039,25 @@
       ],
       "notes": "題目取自107年會考選擇題第4題",
       "year": 107,
-      "options_figure_desc": ""
+      "options_figure_desc": "",
+      "id": "107-4",
+      "number": 4,
+      "question": "已知某文具店販售的筆記本每本售價均相等且超過10元，小錦和小勳在此文具店分別購買若干本筆記本。若小錦購買筆記本的花費為36元，則小勳購買筆記本的花費可能為下列何者？",
+      "figure_type": "none",
+      "page_source": "",
+      "quality_status": "PASS"
     },
     {
       "question_number": 5,
       "type": "choice",
       "subtype": "algebra",
       "difficulty": "medium",
-      "question_text": "若二元一次聯立方程式 $\\begin{cases} 7x-3y=8 \\\\ 3x-y=8 \\end{cases}$ 的解為 $x=a$，$y=b$，則 $a+b$ 之值為何？",
-      "options": [
-        "$24$",
-        "$0$",
-        "$-4$",
-        "$-8$"
-      ],
+      "options": {
+        "A": "$24$",
+        "B": "$0$",
+        "C": "$-4$",
+        "D": "$-8$"
+      },
       "answer": "A",
       "available": true,
       "figure_needed": false,
@@ -4050,20 +4069,25 @@
       ],
       "notes": "已修正 LaTeX 格式",
       "year": 107,
-      "options_figure_desc": ""
+      "options_figure_desc": "",
+      "id": "107-5",
+      "number": 5,
+      "question": "若二元一次聯立方程式 $\\begin{cases} 7x-3y=8 \\\\ 3x-y=8 \\end{cases}$ 的解為 $x=a$，$y=b$，則 $a+b$ 之值為何？",
+      "figure_type": "none",
+      "page_source": "",
+      "quality_status": "PASS"
     },
     {
       "question_number": 6,
       "type": "choice",
       "subtype": "statistics",
       "difficulty": "basic",
-      "question_text": "已知甲、乙兩袋中各裝有若干顆球，其種類與數量如表（一）所示。今阿馮打算從甲袋中抽出一顆球，小潘打算從乙袋中抽出一顆球，判斷下列敘述何者正確？",
-      "options": [
-        "阿馮抽出紅球的機率比小潘抽出紅球的機率大",
-        "阿馮抽出紅球的機率比小潘抽出紅球的機率小",
-        "阿馮抽出黃球的機率比小潘抽出黃球的機率大",
-        "阿馮抽出黃球的機率比小潘抽出黃球的機率小"
-      ],
+      "options": {
+        "A": "阿馮抽出紅球的機率比小潘抽出紅球的機率大",
+        "B": "阿馮抽出紅球的機率比小潘抽出紅球的機率小",
+        "C": "阿馮抽出黃球的機率比小潘抽出黃球的機率大",
+        "D": "阿馮抽出黃球的機率比小潘抽出黃球的機率小"
+      },
       "answer": "C",
       "available": true,
       "figure_needed": true,
@@ -4074,20 +4098,25 @@
       ],
       "notes": "已補充 figure_desc",
       "year": 107,
-      "options_figure_desc": ""
+      "options_figure_desc": "",
+      "id": "107-6",
+      "number": 6,
+      "question": "已知甲、乙兩袋中各裝有若干顆球，其種類與數量如表（一）所示。今阿馮打算從甲袋中抽出一顆球，小潘打算從乙袋中抽出一顆球，判斷下列敘述何者正確？",
+      "figure_type": "none",
+      "page_source": "",
+      "quality_status": "PASS"
     },
     {
       "question_number": 7,
       "type": "choice",
       "subtype": "computation",
       "difficulty": "medium",
-      "question_text": "算式 $\\sqrt{6}\\times\\left(\\frac{1}{\\sqrt{3}}-1\\right)$ 之值為何？",
-      "options": [
-        "$\\sqrt{2}-\\sqrt{6}$",
-        "$\\sqrt{2}-1$",
-        "$2-\\sqrt{6}$",
-        "$1$"
-      ],
+      "options": {
+        "A": "$\\sqrt{2}-\\sqrt{6}$",
+        "B": "$\\sqrt{2}-1$",
+        "C": "$2-\\sqrt{6}$",
+        "D": "$1$"
+      },
       "answer": "A",
       "available": true,
       "figure_needed": false,
@@ -4099,20 +4128,25 @@
       ],
       "notes": "已修正 LaTeX 格式",
       "year": 107,
-      "options_figure_desc": ""
+      "options_figure_desc": "",
+      "id": "107-7",
+      "number": 7,
+      "question": "算式 $\\sqrt{6}\\times\\left(\\frac{1}{\\sqrt{3}}-1\\right)$ 之值為何？",
+      "figure_type": "none",
+      "page_source": "",
+      "quality_status": "PASS"
     },
     {
       "question_number": 8,
       "type": "choice",
       "subtype": "algebra",
       "difficulty": "medium",
-      "question_text": "若一元二次方程式 $x^2-8x-3\\times 11=0$ 的兩根為 $a$、$b$，且 $a>b$，則 $a-2b$ 之值為何？",
-      "options": [
-        "$-25$",
-        "$-19$",
-        "$5$",
-        "$17$"
-      ],
+      "options": {
+        "A": "$-25$",
+        "B": "$-19$",
+        "C": "$5$",
+        "D": "$17$"
+      },
       "answer": "D",
       "available": true,
       "figure_needed": false,
@@ -4124,20 +4158,25 @@
       ],
       "notes": "已修正 LaTeX 格式",
       "year": 107,
-      "options_figure_desc": ""
+      "options_figure_desc": "",
+      "id": "107-8",
+      "number": 8,
+      "question": "若一元二次方程式 $x^2-8x-3\\times 11=0$ 的兩根為 $a$、$b$，且 $a>b$，則 $a-2b$ 之值為何？",
+      "figure_type": "none",
+      "page_source": "",
+      "quality_status": "PASS"
     },
     {
       "question_number": 9,
       "type": "choice",
       "subtype": "geometry",
       "difficulty": "basic",
-      "question_text": "如圖（一），△ABC 中，D 為 BC 的中點，以 D 為圓心，BD 長為半徑畫一弧交 AC 於 E 點。若∠A=60°，∠B=100°，BC=4，則扇形 BDE 的面積為何？",
-      "options": [
-        "$\\frac{1}{3}\\pi$",
-        "$\\frac{2}{3}\\pi$",
-        "$\\frac{4}{9}\\pi$",
-        "$\\frac{5}{9}\\pi$"
-      ],
+      "options": {
+        "A": "$\\frac{1}{3}\\pi$",
+        "B": "$\\frac{2}{3}\\pi$",
+        "C": "$\\frac{4}{9}\\pi$",
+        "D": "$\\frac{5}{9}\\pi$"
+      },
       "answer": "C",
       "available": true,
       "figure_needed": true,
@@ -4150,20 +4189,25 @@
       ],
       "notes": "已補充 figure_desc",
       "year": 107,
-      "options_figure_desc": ""
+      "options_figure_desc": "",
+      "id": "107-9",
+      "number": 9,
+      "question": "如圖（一），△ABC 中，D 為 BC 的中點，以 D 為圓心，BD 長為半徑畫一弧交 AC 於 E 點。若∠A=60°，∠B=100°，BC=4，則扇形 BDE 的面積為何？",
+      "figure_type": "none",
+      "page_source": "",
+      "quality_status": "PASS"
     },
     {
       "question_number": 10,
       "type": "choice",
       "subtype": "computation",
       "difficulty": "medium",
-      "question_text": "圖（二）為大興電器行的促銷活動傳單，已知促銷第一天美食牌微波爐賣出10台，且其銷售額為61000元。若活動期間此款微波爐總共賣出50台，則其總銷售額為多少元？",
-      "options": [
-        "305000",
-        "321000",
-        "329000",
-        "342000"
-      ],
+      "options": {
+        "A": "305000",
+        "B": "321000",
+        "C": "329000",
+        "D": "342000"
+      },
       "answer": "C",
       "available": true,
       "figure_needed": true,
@@ -4175,20 +4219,25 @@
       ],
       "notes": "已補充 figure_desc；難度從 difficult 修正為 medium",
       "year": 107,
-      "options_figure_desc": ""
+      "options_figure_desc": "",
+      "id": "107-10",
+      "number": 10,
+      "question": "圖（二）為大興電器行的促銷活動傳單，已知促銷第一天美食牌微波爐賣出10台，且其銷售額為61000元。若活動期間此款微波爐總共賣出50台，則其總銷售額為多少元？",
+      "figure_type": "none",
+      "page_source": "",
+      "quality_status": "PASS"
     },
     {
       "question_number": 11,
       "type": "choice",
       "subtype": "geometry",
       "difficulty": "difficult",
-      "question_text": "如圖（三），五邊形 ABCDE 中有一正三角形 ACD。若 AB=DE，BC=AE，∠E=115°，則∠BAE 的度數為何？",
-      "options": [
-        "115",
-        "120",
-        "125",
-        "130"
-      ],
+      "options": {
+        "A": "115",
+        "B": "120",
+        "C": "125",
+        "D": "130"
+      },
       "answer": "C",
       "available": true,
       "figure_needed": true,
@@ -4201,20 +4250,25 @@
       ],
       "notes": "已補充 figure_desc",
       "year": 107,
-      "options_figure_desc": ""
+      "options_figure_desc": "",
+      "id": "107-11",
+      "number": 11,
+      "question": "如圖（三），五邊形 ABCDE 中有一正三角形 ACD。若 AB=DE，BC=AE，∠E=115°，則∠BAE 的度數為何？",
+      "figure_type": "none",
+      "page_source": "",
+      "quality_status": "PASS"
     },
     {
       "question_number": 12,
       "type": "choice",
       "subtype": "algebra",
       "difficulty": "medium",
-      "question_text": "圖（四）為 O、A、B、C 四點在數線上的位置圖，其中 O 為原點，且 AC=1，OA=OB。若 C 點所表示的數為 x，則 B 點所表示的數與下列何者相等？",
-      "options": [
-        "$-(x+1)$",
-        "$-(x-1)$",
-        "$x+1$",
-        "$x-1$"
-      ],
+      "options": {
+        "A": "$-(x+1)$",
+        "B": "$-(x-1)$",
+        "C": "$x+1$",
+        "D": "$x-1$"
+      },
       "answer": "B",
       "available": true,
       "figure_needed": true,
@@ -4227,20 +4281,25 @@
       ],
       "notes": "已補充 figure_desc；難度從 basic 修正為 medium",
       "year": 107,
-      "options_figure_desc": ""
+      "options_figure_desc": "",
+      "id": "107-12",
+      "number": 12,
+      "question": "圖（四）為 O、A、B、C 四點在數線上的位置圖，其中 O 為原點，且 AC=1，OA=OB。若 C 點所表示的數為 x，則 B 點所表示的數與下列何者相等？",
+      "figure_type": "none",
+      "page_source": "",
+      "quality_status": "PASS"
     },
     {
       "question_number": 13,
       "type": "choice",
       "subtype": "statistics",
       "difficulty": "medium",
-      "question_text": "圖（五）的宣傳單為萊克印刷公司設計與印刷卡片計價方式的說明，妮娜打算請此印刷公司設計一款母親節卡片並印刷，她再將卡片以每張15元的價格販售。若利潤等於收入扣掉成本，且成本只考慮設計費與印刷費，則她至少需印多少張卡片，才可使得卡片全數售出後的利潤超過成本的2成？",
-      "options": [
-        "112",
-        "121",
-        "134",
-        "143"
-      ],
+      "options": {
+        "A": "112",
+        "B": "121",
+        "C": "134",
+        "D": "143"
+      },
       "answer": "C",
       "available": true,
       "figure_needed": true,
@@ -4252,20 +4311,25 @@
       ],
       "notes": "已補充 figure_desc",
       "year": 107,
-      "options_figure_desc": ""
+      "options_figure_desc": "",
+      "id": "107-13",
+      "number": 13,
+      "question": "圖（五）的宣傳單為萊克印刷公司設計與印刷卡片計價方式的說明，妮娜打算請此印刷公司設計一款母親節卡片並印刷，她再將卡片以每張15元的價格販售。若利潤等於收入扣掉成本，且成本只考慮設計費與印刷費，則她至少需印多少張卡片，才可使得卡片全數售出後的利潤超過成本的2成？",
+      "figure_type": "none",
+      "page_source": "",
+      "quality_status": "PASS"
     },
     {
       "question_number": 14,
       "type": "choice",
       "subtype": "geometry",
       "difficulty": "medium",
-      "question_text": "如圖（六），I 點為 △ABC 的內心，D 點在 BC 上，且 ID⊥BC。若∠B=44°，∠C=56°，則∠AID 的度數為何？",
-      "options": [
-        "174",
-        "176",
-        "178",
-        "180"
-      ],
+      "options": {
+        "A": "174",
+        "B": "176",
+        "C": "178",
+        "D": "180"
+      },
       "answer": "A",
       "available": true,
       "figure_needed": true,
@@ -4278,20 +4342,25 @@
       ],
       "notes": "已補充 figure_desc",
       "year": 107,
-      "options_figure_desc": ""
+      "options_figure_desc": "",
+      "id": "107-14",
+      "number": 14,
+      "question": "如圖（六），I 點為 △ABC 的內心，D 點在 BC 上，且 ID⊥BC。若∠B=44°，∠C=56°，則∠AID 的度數為何？",
+      "figure_type": "none",
+      "page_source": "",
+      "quality_status": "PASS"
     },
     {
       "question_number": 15,
       "type": "choice",
       "subtype": "geometry",
       "difficulty": "difficult",
-      "question_text": "圖（七）為一直角柱，其底面是三邊長為 5、12、13 的直角三角形。若下列選項中的圖形均由三個矩形與兩個直角三角形組合而成，且其中一個為圖（七）的直角柱的展開圖，則根據圖形中標示的邊長與直角記號判斷，此展開圖為何？",
-      "options": [
-        "選項A",
-        "選項B",
-        "選項C",
-        "選項D"
-      ],
+      "options": {
+        "A": "選項A",
+        "B": "選項B",
+        "C": "選項C",
+        "D": "選項D"
+      },
       "answer": "D",
       "available": true,
       "figure_needed": true,
@@ -4303,20 +4372,25 @@
       ],
       "notes": "已補充 figure_desc",
       "year": 107,
-      "options_figure_desc": ""
+      "options_figure_desc": "",
+      "id": "107-15",
+      "number": 15,
+      "question": "圖（七）為一直角柱，其底面是三邊長為 5、12、13 的直角三角形。若下列選項中的圖形均由三個矩形與兩個直角三角形組合而成，且其中一個為圖（七）的直角柱的展開圖，則根據圖形中標示的邊長與直角記號判斷，此展開圖為何？",
+      "figure_type": "none",
+      "page_source": "",
+      "quality_status": "PASS"
     },
     {
       "question_number": 16,
       "type": "choice",
       "subtype": "number_theory",
       "difficulty": "medium",
-      "question_text": "若小舒從 1～50 的整數中挑選 4 個數，使其由小到大排序後形成一等差數列，且 4 個數中最小的是 7，則下列哪一個數不可能出現在小舒挑選的數之中？",
-      "options": [
-        "20",
-        "25",
-        "30",
-        "35"
-      ],
+      "options": {
+        "A": "20",
+        "B": "25",
+        "C": "30",
+        "D": "35"
+      },
       "answer": "C",
       "available": true,
       "figure_needed": false,
@@ -4328,20 +4402,25 @@
       ],
       "notes": "題目取自107年會考選擇題第16題",
       "year": 107,
-      "options_figure_desc": ""
+      "options_figure_desc": "",
+      "id": "107-16",
+      "number": 16,
+      "question": "若小舒從 1～50 的整數中挑選 4 個數，使其由小到大排序後形成一等差數列，且 4 個數中最小的是 7，則下列哪一個數不可能出現在小舒挑選的數之中？",
+      "figure_type": "none",
+      "page_source": "",
+      "quality_status": "PASS"
     },
     {
       "question_number": 17,
       "type": "choice",
       "subtype": "number_theory",
       "difficulty": "medium",
-      "question_text": "已知 $a=3.1\\times 10^{-4}$，$b=5.2\\times 10^{-8}$，判斷下列關於 $a-b$ 之值的敘述何者正確？",
-      "options": [
-        "比 1 大",
-        "介於 0、1 之間",
-        "介於 $-1$、0 之間",
-        "比 $-1$ 小"
-      ],
+      "options": {
+        "A": "比 1 大",
+        "B": "介於 0、1 之間",
+        "C": "介於 $-1$、0 之間",
+        "D": "比 $-1$ 小"
+      },
       "answer": "B",
       "available": true,
       "figure_needed": false,
@@ -4353,20 +4432,25 @@
       ],
       "notes": "已修正 LaTeX 格式",
       "year": 107,
-      "options_figure_desc": ""
+      "options_figure_desc": "",
+      "id": "107-17",
+      "number": 17,
+      "question": "已知 $a=3.1\\times 10^{-4}$，$b=5.2\\times 10^{-8}$，判斷下列關於 $a-b$ 之值的敘述何者正確？",
+      "figure_type": "none",
+      "page_source": "",
+      "quality_status": "PASS"
     },
     {
       "question_number": 18,
       "type": "choice",
       "subtype": "geometry",
       "difficulty": "difficult",
-      "question_text": "如圖（八），銳角三角形 ABC 中，BC>AB>AC，甲、乙兩人想找一點 P，使得 ∠BPC 與 ∠A 互補，其作法分別如下：（甲）以 A 為圓心，AC 長為半徑畫弧交 AB 於 P 點；（乙）作過 B 點且與 AB 垂直的直線 L，作過 C 點且與 AC 垂直的直線，交 L 於 P 點。對於甲、乙兩人的作法，下列敘述何者正確？",
-      "options": [
-        "兩人皆正確",
-        "兩人皆錯誤",
-        "甲正確，乙錯誤",
-        "甲錯誤，乙正確"
-      ],
+      "options": {
+        "A": "兩人皆正確",
+        "B": "兩人皆錯誤",
+        "C": "甲正確，乙錯誤",
+        "D": "甲錯誤，乙正確"
+      },
       "answer": "D",
       "available": true,
       "figure_needed": true,
@@ -4379,20 +4463,25 @@
       ],
       "notes": "已補充 figure_desc",
       "year": 107,
-      "options_figure_desc": ""
+      "options_figure_desc": "",
+      "id": "107-18",
+      "number": 18,
+      "question": "如圖（八），銳角三角形 ABC 中，BC>AB>AC，甲、乙兩人想找一點 P，使得 ∠BPC 與 ∠A 互補，其作法分別如下：（甲）以 A 為圓心，AC 長為半徑畫弧交 AB 於 P 點；（乙）作過 B 點且與 AB 垂直的直線 L，作過 C 點且與 AC 垂直的直線，交 L 於 P 點。對於甲、乙兩人的作法，下列敘述何者正確？",
+      "figure_type": "none",
+      "page_source": "",
+      "quality_status": "PASS"
     },
     {
       "question_number": 19,
       "type": "choice",
       "subtype": "statistics",
       "difficulty": "medium",
-      "question_text": "已知甲、乙兩班的學生人數相同，圖（九）為兩班某次數學小考成績的盒狀圖。若甲班、乙班學生小考成績的中位數分別為 a、b；甲班、乙班中小考成績超過80分的學生人數分別為 c、d，則下列 a、b、c、d 的大小關係，何者正確？",
-      "options": [
-        "$a>b$，$c>d$",
-        "$a>b$，$c<d$",
-        "$a<b$，$c>d$",
-        "$a<b$，$c<d$"
-      ],
+      "options": {
+        "A": "$a>b$，$c>d$",
+        "B": "$a>b$，$c<d$",
+        "C": "$a<b$，$c>d$",
+        "D": "$a<b$，$c<d$"
+      },
       "answer": "A",
       "available": true,
       "figure_needed": true,
@@ -4405,20 +4494,25 @@
       ],
       "notes": "已補充 figure_desc",
       "year": 107,
-      "options_figure_desc": ""
+      "options_figure_desc": "",
+      "id": "107-19",
+      "number": 19,
+      "question": "已知甲、乙兩班的學生人數相同，圖（九）為兩班某次數學小考成績的盒狀圖。若甲班、乙班學生小考成績的中位數分別為 a、b；甲班、乙班中小考成績超過80分的學生人數分別為 c、d，則下列 a、b、c、d 的大小關係，何者正確？",
+      "figure_type": "none",
+      "page_source": "",
+      "quality_status": "PASS"
     },
     {
       "question_number": 20,
       "type": "choice",
       "subtype": "geometry",
       "difficulty": "difficult",
-      "question_text": "圖（十）的矩形 ABCD 中，有一點 E 在 AD 上，今以 BE 為摺線將 A 點往右摺，如圖（十一）所示。再作過 A 點且與 CD 垂直的直線，交 CD 於 F 點，如圖（十二）所示。若 $AB=6\\sqrt{3}$，$BC=13$，∠BEA=60°，則圖（十二）中 AF 的長度為何？",
-      "options": [
-        "2",
-        "4",
-        "$2\\sqrt{3}$",
-        "$4\\sqrt{3}$"
-      ],
+      "options": {
+        "A": "2",
+        "B": "4",
+        "C": "$2\\sqrt{3}$",
+        "D": "$4\\sqrt{3}$"
+      },
       "answer": "B",
       "available": true,
       "figure_needed": true,
@@ -4431,20 +4525,25 @@
       ],
       "notes": "已修正 LaTeX 格式並補充 figure_desc",
       "year": 107,
-      "options_figure_desc": ""
+      "options_figure_desc": "",
+      "id": "107-20",
+      "number": 20,
+      "question": "圖（十）的矩形 ABCD 中，有一點 E 在 AD 上，今以 BE 為摺線將 A 點往右摺，如圖（十一）所示。再作過 A 點且與 CD 垂直的直線，交 CD 於 F 點，如圖（十二）所示。若 $AB=6\\sqrt{3}$，$BC=13$，∠BEA=60°，則圖（十二）中 AF 的長度為何？",
+      "figure_type": "none",
+      "page_source": "",
+      "quality_status": "PASS"
     },
     {
       "question_number": 21,
       "type": "choice",
       "subtype": "function",
       "difficulty": "difficult",
-      "question_text": "已知坐標平面上有一直線 L，其方程式為 $y+2=0$，且 L 與二次函數 $y=3x^2+a$ 的圖形相交於 A、B 兩點；與二次函數 $y=-2x^2+b$ 的圖形相交於 C、D 兩點，其中 a、b 為整數。若 AB=2，CD=4，則 $a+b$ 之值為何？",
-      "options": [
-        "1",
-        "9",
-        "16",
-        "24"
-      ],
+      "options": {
+        "A": "1",
+        "B": "9",
+        "C": "16",
+        "D": "24"
+      },
       "answer": "A",
       "available": true,
       "figure_needed": false,
@@ -4457,20 +4556,25 @@
       ],
       "notes": "已修正 LaTeX 格式",
       "year": 107,
-      "options_figure_desc": ""
+      "options_figure_desc": "",
+      "id": "107-21",
+      "number": 21,
+      "question": "已知坐標平面上有一直線 L，其方程式為 $y+2=0$，且 L 與二次函數 $y=3x^2+a$ 的圖形相交於 A、B 兩點；與二次函數 $y=-2x^2+b$ 的圖形相交於 C、D 兩點，其中 a、b 為整數。若 AB=2，CD=4，則 $a+b$ 之值為何？",
+      "figure_type": "none",
+      "page_source": "",
+      "quality_status": "PASS"
     },
     {
       "question_number": 22,
       "type": "choice",
       "subtype": "geometry",
       "difficulty": "difficult",
-      "question_text": "如圖（十三），兩圓外切於 P 點，且通過 P 點的公切線為 L。過 P 點作兩直線，兩直線與兩圓的交點為 A、B、C、D，其位置如圖（十三）所示。若 AP=10，CP=9，則下列角度關係何者正確？",
-      "options": [
-        "∠PBD > ∠PAC",
-        "∠PBD < ∠PAC",
-        "∠PBD > ∠PDB",
-        "∠PBD < ∠PDB"
-      ],
+      "options": {
+        "A": "∠PBD > ∠PAC",
+        "B": "∠PBD < ∠PAC",
+        "C": "∠PBD > ∠PDB",
+        "D": "∠PBD < ∠PDB"
+      },
       "answer": "D",
       "available": true,
       "figure_needed": true,
@@ -4483,20 +4587,25 @@
       ],
       "notes": "已補充 figure_desc",
       "year": 107,
-      "options_figure_desc": ""
+      "options_figure_desc": "",
+      "id": "107-22",
+      "number": 22,
+      "question": "如圖（十三），兩圓外切於 P 點，且通過 P 點的公切線為 L。過 P 點作兩直線，兩直線與兩圓的交點為 A、B、C、D，其位置如圖（十三）所示。若 AP=10，CP=9，則下列角度關係何者正確？",
+      "figure_type": "none",
+      "page_source": "",
+      "quality_status": "PASS"
     },
     {
       "question_number": 23,
       "type": "choice",
       "subtype": "computation",
       "difficulty": "medium",
-      "question_text": "小柔想要榨果汁，她有蘋果、芒樂、柳丁三種水果，且其顆數比為 9:7:6。小柔榨完果汁後，蘋果、芒樂、柳丁的顆數比變為 6:3:4。已知小柔榨果汁時沒有使用柳丁，關於她榨果汁時另外兩種水果的使用情形，下列敘述何者正確？",
-      "options": [
-        "只使用蘋果",
-        "只使用芒樂",
-        "使用蘋果及芒樂，且使用的蘋果顆數比使用的芒樂顆數多",
-        "使用蘋果及芒樂，且使用的芒樂顆數比使用的蘋果顆數多"
-      ],
+      "options": {
+        "A": "只使用蘋果",
+        "B": "只使用芒樂",
+        "C": "使用蘋果及芒樂，且使用的蘋果顆數比使用的芒樂顆數多",
+        "D": "使用蘋果及芒樂，且使用的芒樂顆數比使用的蘋果顆數多"
+      },
       "answer": "B",
       "available": true,
       "figure_needed": false,
@@ -4508,20 +4617,25 @@
       ],
       "notes": "subtype 已從 logic 修正為 computation",
       "year": 107,
-      "options_figure_desc": ""
+      "options_figure_desc": "",
+      "id": "107-23",
+      "number": 23,
+      "question": "小柔想要榨果汁，她有蘋果、芒樂、柳丁三種水果，且其顆數比為 9:7:6。小柔榨完果汁後，蘋果、芒樂、柳丁的顆數比變為 6:3:4。已知小柔榨果汁時沒有使用柳丁，關於她榨果汁時另外兩種水果的使用情形，下列敘述何者正確？",
+      "figure_type": "none",
+      "page_source": "",
+      "quality_status": "PASS"
     },
     {
       "question_number": 24,
       "type": "choice",
       "subtype": "geometry",
       "difficulty": "difficult",
-      "question_text": "如圖（十四），△ABC、△FGH 中，D、E 兩點分別在 AB、AC 上，F 點在 DE 上，G、H 兩點在 BC 上，且 DE∥BC，FG∥AB，FH∥AC。若 BG:GH:HC=4:6:5，則 △ADE 與 △FGH 的面積比為何？",
-      "options": [
-        "2:1",
-        "3:2",
-        "5:2",
-        "9:4"
-      ],
+      "options": {
+        "A": "2:1",
+        "B": "3:2",
+        "C": "5:2",
+        "D": "9:4"
+      },
       "answer": "D",
       "available": true,
       "figure_needed": true,
@@ -4533,20 +4647,25 @@
       ],
       "notes": "已補充 figure_desc",
       "year": 107,
-      "options_figure_desc": ""
+      "options_figure_desc": "",
+      "id": "107-24",
+      "number": 24,
+      "question": "如圖（十四），△ABC、△FGH 中，D、E 兩點分別在 AB、AC 上，F 點在 DE 上，G、H 兩點在 BC 上，且 DE∥BC，FG∥AB，FH∥AC。若 BG:GH:HC=4:6:5，則 △ADE 與 △FGH 的面積比為何？",
+      "figure_type": "none",
+      "page_source": "",
+      "quality_status": "PASS"
     },
     {
       "question_number": 25,
       "type": "choice",
       "subtype": "algebra",
       "difficulty": "difficult",
-      "question_text": "某商店將巧克力包裝成方形、圓形禮盒出售，且每盒方形禮盒的價錢相同，每盒圓形禮盒的價錢相同。阿郁原先想購買 3 盒方形禮盒和 7 盒圓形禮盒，但他身上的錢會不足 240 元，如果改成購買 7 盒方形禮盒和 3 盒圓形禮盒，他身上的錢會剩下 240 元。若阿郁最後購買 10 盒方形禮盒，則他身上的錢會剩下多少元？",
-      "options": [
-        "360",
-        "480",
-        "600",
-        "720"
-      ],
+      "options": {
+        "A": "360",
+        "B": "480",
+        "C": "600",
+        "D": "720"
+      },
       "answer": "C",
       "available": true,
       "figure_needed": false,
@@ -4558,20 +4677,25 @@
       ],
       "notes": "題目取自107年會考選擇題第25題",
       "year": 107,
-      "options_figure_desc": ""
+      "options_figure_desc": "",
+      "id": "107-25",
+      "number": 25,
+      "question": "某商店將巧克力包裝成方形、圓形禮盒出售，且每盒方形禮盒的價錢相同，每盒圓形禮盒的價錢相同。阿郁原先想購買 3 盒方形禮盒和 7 盒圓形禮盒，但他身上的錢會不足 240 元，如果改成購買 7 盒方形禮盒和 3 盒圓形禮盒，他身上的錢會剩下 240 元。若阿郁最後購買 10 盒方形禮盒，則他身上的錢會剩下多少元？",
+      "figure_type": "none",
+      "page_source": "",
+      "quality_status": "PASS"
     },
     {
       "question_number": 26,
       "type": "choice",
       "subtype": "geometry",
       "difficulty": "difficult",
-      "question_text": "如圖（十五），坐標平面上，A、B 兩點分別為圓 P 與 x 軸、y 軸的交點，有一直線 L 通過 P 點且與 AB 垂直，C 點為 L 與 y 軸的交點。若 A、B、C 的坐標分別為 $(a, 0)$、$(0, 4)$、$(0, -5)$，其中 $a<0$，則 $a$ 的值為何？",
-      "options": [
-        "$-2\\sqrt{14}$",
-        "$-2\\sqrt{5}$",
-        "$-8$",
-        "$-7$"
-      ],
+      "options": {
+        "A": "$-2\\sqrt{14}$",
+        "B": "$-2\\sqrt{5}$",
+        "C": "$-8$",
+        "D": "$-7$"
+      },
       "answer": "A",
       "available": true,
       "figure_needed": true,
@@ -4584,15 +4708,20 @@
       ],
       "notes": "已修正 LaTeX 格式並補充 figure_desc",
       "year": 107,
-      "options_figure_desc": ""
+      "options_figure_desc": "",
+      "id": "107-26",
+      "number": 26,
+      "question": "如圖（十五），坐標平面上，A、B 兩點分別為圓 P 與 x 軸、y 軸的交點，有一直線 L 通過 P 點且與 AB 垂直，C 點為 L 與 y 軸的交點。若 A、B、C 的坐標分別為 $(a, 0)$、$(0, 4)$、$(0, -5)$，其中 $a<0$，則 $a$ 的值為何？",
+      "figure_type": "none",
+      "page_source": "",
+      "quality_status": "PASS"
     },
     {
       "question_number": 1,
       "type": "essay",
       "subtype": "statistics",
       "difficulty": "difficult",
-      "question_text": "一個箱子內有 4 顆相同的球，將 4 顆球分別標示號碼 1、2、3、4，今翔翔以每次從箱子內取一顆球且取後放回的方式抽取，並預計取球 10 次，現已取了 8 次，取出的結果如表（二）所列：次數第1-8次號碼依序為 1、3、4、4、2、1、4、1。若每次取球時，任一顆球被取到的機會皆相等，且取出的號碼即為得分，請回答下列問題：(1) 請求出第 1 次至第 8 次得分的平均數。(2) 承 (1)，翔翔打算依計畫繼續從箱子取球 2 次，請判斷是否可能發生「這 10 次得分的平均數不小於 2.2，且不大於 2.4」的情形？若有可能，請計算出發生此情形的機率，並完整寫出你的解題過程；若不可能，請完整說明你的理由。",
-      "options": [],
+      "options": {},
       "answer": null,
       "available": true,
       "figure_needed": false,
@@ -4605,15 +4734,20 @@
       ],
       "notes": "非選題第1題，屬於 statistics 類型",
       "year": 107,
-      "options_figure_desc": ""
+      "options_figure_desc": "",
+      "id": "107-1",
+      "number": 1,
+      "question": "一個箱子內有 4 顆相同的球，將 4 顆球分別標示號碼 1、2、3、4，今翔翔以每次從箱子內取一顆球且取後放回的方式抽取，並預計取球 10 次，現已取了 8 次，取出的結果如表（二）所列：次數第1-8次號碼依序為 1、3、4、4、2、1、4、1。若每次取球時，任一顆球被取到的機會皆相等，且取出的號碼即為得分，請回答下列問題：(1) 請求出第 1 次至第 8 次得分的平均數。(2) 承 (1)，翔翔打算依計畫繼續從箱子取球 2 次，請判斷是否可能發生「這 10 次得分的平均數不小於 2.2，且不大於 2.4」的情形？若有可能，請計算出發生此情形的機率，並完整寫出你的解題過程；若不可能，請完整說明你的理由。",
+      "figure_type": "none",
+      "page_source": "",
+      "quality_status": "PASS"
     },
     {
       "question_number": 2,
       "type": "essay",
       "subtype": "geometry",
       "difficulty": "difficult",
-      "question_text": "嘉嘉參加機器人設計活動，需操控機器人在 5×5 的方格棋盤上從 A 點行走至 B 點，且每個小方格皆為正方形。主辦單位規定了三條行走路徑 R₁、R₂、R₃，其行經位置如圖（十六）與表（三）所示。已知 A、B、C、D、E、F、G 七點皆落在格線的交點上，且兩點之間的路徑皆為直線，在無法使用任何工具測量的條件下，請判斷 R₁、R₂、R₃ 這三條路徑中，最長與最短的路徑分別為何？請寫出你的答案，並完整說明理由。",
-      "options": [],
+      "options": {},
       "answer": null,
       "available": true,
       "figure_needed": true,
@@ -4626,7 +4760,13 @@
       ],
       "notes": "非選題第2題，屬於 geometry 類型，已補充 figure_desc",
       "year": 107,
-      "options_figure_desc": ""
+      "options_figure_desc": "",
+      "id": "107-2",
+      "number": 2,
+      "question": "嘉嘉參加機器人設計活動，需操控機器人在 5×5 的方格棋盤上從 A 點行走至 B 點，且每個小方格皆為正方形。主辦單位規定了三條行走路徑 R₁、R₂、R₃，其行經位置如圖（十六）與表（三）所示。已知 A、B、C、D、E、F、G 七點皆落在格線的交點上，且兩點之間的路徑皆為直線，在無法使用任何工具測量的條件下，請判斷 R₁、R₂、R₃ 這三條路徑中，最長與最短的路徑分別為何？請寫出你的答案，並完整說明理由。",
+      "figure_type": "none",
+      "page_source": "",
+      "quality_status": "PASS"
     },
     {
       "id": "108-1",
@@ -5394,10 +5534,10 @@
       "figure_needed": true,
       "figure_desc": "坐標平面上的拋物線，頂點A(-3,0)，拋物線與y=2交於B、C兩點，三角形ABC為正三角形。",
       "options": {
-        "A": "$\\left(0,\\ \\dfrac{9}{2}\right)$",
-        "B": "$\\left(0,\\ \\dfrac{27}{2}\right)$",
-        "C": "$\\left(0,\\ 9\right)$",
-        "D": "$\\left(0,\\ 18\right)$"
+        "A": "$\\left(0,\\,\\dfrac{9}{2}\\right)$",
+        "B": "$\\left(0,\\,\\dfrac{27}{2}\\right)$",
+        "C": "$\\left(0,\\,9\\right)$",
+        "D": "$\\left(0,\\,18\\right)$"
       },
       "answer": "B",
       "available": false,
@@ -5405,7 +5545,11 @@
       "is_fixed": true,
       "correction_note": "補充 figure_desc：拋物線與正三角形ABC的位置關係圖",
       "quality_status": "PASS",
-      "options_figure_desc": ""
+      "options_figure_desc": "",
+      "option_A": "$\\left(0,\\,\\dfrac{9}{2}\\right)$",
+      "option_B": "$\\left(0,\\,\\dfrac{27}{2}\\right)$",
+      "option_C": "$\\left(0,\\,9\\right)$",
+      "option_D": "$\\left(0,\\,18\\right)$"
     },
     {
       "id": "108-27",
@@ -8471,7 +8615,7 @@
         "分數運算",
         "負數減法"
       ],
-      "question": "算式 $\\dfrac{3}{7} - \\left(-\\dfrac{1}{4}\right)$ 之值為何？",
+      "question": "算式 $\\dfrac{3}{7} - \\left(-\\dfrac{1}{4}\\right)$ 之值為何？",
       "figure_type": "none",
       "figure_needed": false,
       "options": {
@@ -8533,7 +8677,7 @@
         "二元一次聯立方程式",
         "代入法"
       ],
-      "question": "若二元一次聯立方程式 $\begin{cases} 5x - 3y = 28 \\\\ y = -3x \\end{cases}$ 的解為 $\begin{cases} x = a \\\\ y = b \\end{cases}$，則 $a + b$ 之值為何？",
+      "question": "若二元一次聯立方程式 $\\begin{cases} 5x - 3y = 28 \\\\ y = -3x \\end{cases}$ 的解為 $\\begin{cases} x = a \\\\ y = b \\end{cases}$，則 $a + b$ 之值為何？",
       "figure_type": "none",
       "figure_needed": false,
       "options": {
@@ -8937,15 +9081,17 @@
       "options": {
         "A": "$14.88 + 0.08x$",
         "B": "$14.88 + 0.008x$",
-        "C": "$14.88 + 0.08\\left[x + (2020 - 1880)\right]$",
-        "D": "$14.88 + 0.008\\left[x + (2020 - 1880)\right]$"
+        "C": "$14.88 + 0.08\\left[x + (2020 - 1880)\\right]$",
+        "D": "$14.88 + 0.008\\left[x + (2020 - 1880)\\right]$"
       },
       "answer": "B",
       "available": true,
       "page_source": "p7",
       "qa_status": "PASS",
       "figure_desc": "",
-      "options_figure_desc": ""
+      "options_figure_desc": "",
+      "option_C": "$14.88 + 0.08\\left[x + (2020 - 1880)\\right]$",
+      "option_D": "$14.88 + 0.008\\left[x + (2020 - 1880)\\right]$"
     },
     {
       "id": "113-17",
