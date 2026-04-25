@@ -8,6 +8,7 @@
 const state = {
   questions: [],
   filtered: [],
+  shuffled: false,        // NEW: shuffle flag
   filters: {
     years: new Set(),
     type: 'all',
@@ -424,6 +425,7 @@ function resetFilters() {
   state.filters.concept    = 'all';
   state.filters.quality    = 'all';
   state.filters.search     = '';
+  state.shuffled           = false;
   $('search-input').value = '';
   $('search-clear').style.display = 'none';
 
@@ -439,6 +441,9 @@ function resetFilters() {
   $('filter-quality').querySelector('[data-val="all"]').classList.add('active');
   $('filter-concept').value = 'all';
 
+  // Reset shuffle button
+  $('btn-shuffle').classList.remove('active');
+
   applyFilters();
 }
 
@@ -447,6 +452,248 @@ function setView(v) {
   $('btn-grid').classList.toggle('active', v === 'grid');
   $('btn-list').classList.toggle('active', v === 'list');
   grid.className = 'question-grid' + (v === 'list' ? ' list-view' : '');
+}
+
+// ── Shuffle ───────────────────────────────────────────────
+function shuffleCurrent() {
+  if (!state.filtered.length) return;
+  // Fisher-Yates shuffle
+  const arr = [...state.filtered];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  state.filtered = arr;
+  state.shuffled = true;
+  state.page = 0;
+
+  // Highlight shuffle button
+  $('btn-shuffle').classList.add('active');
+  // Update result count
+  $('result-count').textContent = `${state.filtered.length} 筆結果（已亂序）`;
+  renderPage();
+}
+
+// ── Print ──────────────────────────────────────────────────
+let _currentPrintMode = 'paper';
+
+function openPrintDialog(mode) {
+  if (!state.filtered.length) {
+    alert('沒有題目可列印，請先設定篩選條件。');
+    return;
+  }
+  _currentPrintMode = mode;
+  const title = mode === 'paper' ? '列印題目卷' : '列印答案卷';
+  $('print-dialog-title').textContent = `${title}（${state.filtered.length} 題）`;
+
+  const html = mode === 'paper'
+    ? buildPaperHTML(state.filtered)
+    : buildAnswerHTML(state.filtered);
+
+  const frame = $('print-frame');
+  const doc = frame.contentDocument || frame.contentWindow.document;
+  doc.open();
+  doc.write(html);
+  doc.close();
+
+  $('print-dialog-overlay').classList.add('open');
+  // Re-init icons
+  if (window.lucide) lucide.createIcons();
+}
+
+function closePrintDialog() {
+  $('print-dialog-overlay').classList.remove('open');
+}
+
+function doPrint() {
+  const frame = $('print-frame');
+  const win = frame.contentWindow || frame.contentDocument;
+  win.print();
+}
+
+function diffLabelPrint(d) {
+  const map = { basic: '基礎', medium: '中等', hard: '困難', difficult: '最難' };
+  return map[d] || d;
+}
+
+function renderMathBlock(text) {
+  // Replace $...$ with KaTeX-rendered HTML
+  if (typeof katex !== 'undefined') {
+    return text.replace(/\$([^$]+)\$/g, (_, expr) => {
+      try { return katex.renderToString(expr, { throwOnError: false, displayMode: false }); }
+      catch(e) { return `<span class="katex-err">${escHtml(expr)}</span>`; }
+    });
+  }
+  return escHtml(text);
+}
+
+function buildPaperHTML(questions) {
+  const diffLabel2 = d => ({ basic: '基礎', medium: '中等', hard: '困難', difficult: '最難' }[d] || d);
+  const diffColor = d => ({ basic: '#d1fae5', medium: '#fef9c3', hard: '#fee2e2', difficult: '#fee2e2' }[d] || '#f1f5f9');
+
+  const rows = questions.map((q, i) => {
+    const num = i + 1;
+    const typeLabel = q.type === 'choice' ? '選擇題' : '非選題';
+    const fig = q.figure_desc ? `<div class="print-figure-desc">📐 ${escHtml(q.figure_desc)}</div>` : '';
+
+    let opts = '';
+    if (q.type === 'choice' && q.options) {
+      const optRows = Object.entries(q.options).map(([l, t]) =>
+        `<li><span class="opt-label">${l}.</span><span>${renderMathBlock(t)}</span></li>`
+      ).join('');
+      opts = `<ul class="print-options">${optRows}</ul>`;
+    }
+
+    return `
+    <div class="print-question">
+      <div class="print-question-header">
+        <span>第 ${num} 題 ｜ ${q.year}年</span>
+        <span>${typeLabel} · ${diffLabel2(q.difficulty)} · ${(q.concepts||[]).slice(0,2).join('、')}</span>
+      </div>
+      <div class="print-question-body">
+        <div class="print-question-text">${renderMathBlock(q.question)}</div>
+        ${fig}
+        ${opts}
+      </div>
+    </div>`;
+  }).join('');
+
+  return `<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width"/>
+<title>題目卷</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<style>
+  body { font-family: 'Noto Sans TC', 'AR PL UMing CN', 'WenQuanYi Zen Hei', serif; font-size: 14px; line-height: 1.7; color: #111; margin: 0; padding: 20px; background: #fff; }
+  .paper-header { text-align: center; margin-bottom: 32px; border-bottom: 2px solid #1e3a5f; padding-bottom: 16px; }
+  .paper-header h1 { font-size: 22px; color: #1e3a5f; margin: 0 0 6px; }
+  .paper-header p { font-size: 13px; color: #64748b; margin: 0; }
+  .print-question { margin-bottom: 28px; page-break-inside: avoid; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; }
+  .print-question-header { background: #f1f5f9; padding: 8px 14px; font-size: 12px; font-weight: 700; color: #1e3a5f; border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px; }
+  .print-question-body { padding: 16px; }
+  .print-question-text { font-size: 15px; line-height: 1.75; margin-bottom: 12px; }
+  .print-figure-desc { background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #92400e; margin-top: 10px; border-left: 3px solid #f59e0b; }
+  .print-options { margin: 0; padding: 0; list-style: none; }
+  .print-options li { padding: 8px 12px; font-size: 14px; border-bottom: 1px solid #f1f5f9; display: flex; gap: 10px; }
+  .print-options li:last-child { border-bottom: none; }
+  .opt-label { font-weight: 700; min-width: 22px; color: #1e3a5f; }
+  .paper-footer { text-align: center; font-size: 12px; color: #94a3b8; margin-top: 32px; padding-top: 16px; border-top: 1px solid #e2e8f0; }
+  .katex-err { color: #ef4444; background: #fee2e2; padding: 1px 4px; border-radius: 3px; font-size: 12px; }
+  @media print { .print-question { break-inside: avoid; } body { padding: 0; } }
+</style>
+</head>
+<body>
+<div class="paper-header">
+  <h1>國中教育會考 數學科 題目卷</h1>
+  <p>共 ${questions.length} 題 ｜ ${new Date().toLocaleDateString('zh-TW')} 自行列印</p>
+</div>
+${rows}
+<div class="paper-footer">國中教育會考數學科題庫 ｜ 資料來源：cap.rcpet.edu.tw</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof renderMathInElement !== 'undefined') {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: '$$', right: '$$', display: true },
+          { left: '$',  right: '$',  display: false }
+        ],
+        throwOnError: false
+      });
+    }
+  });
+</script>
+</body>
+</html>`;
+}
+
+function buildAnswerHTML(questions) {
+  // Build a clean answer sheet — questions grouped by year
+  const choiceQuestions = questions.filter(q => q.type === 'choice');
+
+  // Group by year
+  const byYear = {};
+  choiceQuestions.forEach(q => {
+    if (!byYear[q.year]) byYear[q.year] = [];
+    byYear[q.year].push(q);
+  });
+
+  let yearBlocks = '';
+  Object.keys(byYear).sort().forEach(year => {
+    const qs = byYear[year];
+    // 5-column answer grid: 1-5, 6-10, 11-15, 16-20, 21-25
+    const blocks = [];
+    for (let start = 1; start <= 25; start += 5) {
+      const end = Math.min(start + 4, 25);
+      const nums = [];
+      const answers = [];
+      for (let n = start; n <= end; n++) {
+        nums.push(n);
+        const q = qs.find(q => q.number === n);
+        answers.push(q ? `<span class="answered">${escHtml(q.answer || '—')}</span>` : '—');
+      }
+      blocks.push(`<div class="answer-block">
+        <div class="answer-block-header">${start}–${end} 題</div>
+        <div class="answer-block-body">
+          ${nums.map((n, i) => `<div class="answer-cell">${n}<br>${answers[i]}</div>`).join('')}
+        </div>
+      </div>`);
+    }
+    yearBlocks += `<div style="margin-bottom:32px">
+      <h3 style="font-size:16px;color:#1e3a5f;margin-bottom:12px;border-bottom:1px solid #e2e8f0;padding-bottom:8px;">${year} 年（${qs.length} 題）</h3>
+      <div class="answer-grid">${blocks.join('')}</div>
+    </div>`;
+  });
+
+  // Key list (id → answer)
+  const keyRows = choiceQuestions.map(q =>
+    `<div class="answer-key-row">
+      <span>${q.year}-${q.number}</span>
+      <span style="font-weight:700;color:#1e3a5f">${escHtml(q.answer || '—')}</span>
+    </div>`
+  ).join('');
+
+  return `<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width"/>
+<title>答案卷</title>
+<style>
+  body { font-family: 'Noto Sans TC', serif; font-size: 14px; color: #111; margin: 0; padding: 30px; background: #fff; }
+  .answer-header { text-align: center; margin-bottom: 32px; border-bottom: 2px solid #1e3a5f; padding-bottom: 16px; }
+  .answer-header h1 { font-size: 22px; color: #1e3a5f; margin: 0 0 6px; }
+  .answer-header p { font-size: 13px; color: #64748b; margin: 0; }
+  .answer-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 20px; }
+  .answer-block { border: 1px solid #e2e8f0; border-radius: 6px; overflow: hidden; }
+  .answer-block-header { background: #1e3a5f; color: #fff; text-align: center; font-size: 11px; font-weight: 700; padding: 4px; }
+  .answer-block-body { padding: 8px 4px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; font-size: 13px; text-align: center; }
+  .answer-cell { padding: 4px 2px; font-size: 12px; }
+  .answer-cell.answered { font-weight: 700; color: #1e3a5f; }
+  .answer-key { margin-top: 32px; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; }
+  .answer-key h3 { background: #f1f5f9; margin: 0; padding: 10px 16px; font-size: 13px; color: #1e3a5f; border-bottom: 1px solid #e2e8f0; }
+  .answer-key-row { display: flex; justify-content: space-between; padding: 6px 16px; border-bottom: 1px solid #f1f5f9; font-size: 13px; }
+  .answer-key-row:last-child { border-bottom: none; }
+  .answer-footer { text-align: center; font-size: 12px; color: #94a3b8; margin-top: 24px; }
+  @media print { body { padding: 0; } .answer-grid { gap: 4px; } }
+</style>
+</head>
+<body>
+<div class="answer-header">
+  <h1>國中教育會考 數學科 答案卷</h1>
+  <p>共 ${choiceQuestions.length} 題選擇題 ｜ ${new Date().toLocaleDateString('zh-TW')} 自行列印</p>
+</div>
+<div class="answer-grid">${yearBlocks}</div>
+<div class="answer-key">
+  <h3>📝 答案對照表</h3>
+  ${keyRows}
+</div>
+<div class="answer-footer">國中教育會考數學科題庫 ｜ 資料來源：cap.rcpet.edu.tw</div>
+</body>
+</html>`;
 }
 
 // ── Helpers ────────────────────────────────────────────────

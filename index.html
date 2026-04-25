@@ -120,6 +120,15 @@
     <div class="toolbar">
       <div class="toolbar-left">
         <span class="result-count" id="result-count">— 筆結果</span>
+        <button id="btn-shuffle" class="btn-toolbar" title="亂數排列目前結果" onclick="shuffleCurrent()">
+          <i data-lucide="shuffle"></i> 亂數排列
+        </button>
+        <button id="btn-print-paper" class="btn-toolbar" title="列印試卷（題目紙）" onclick="openPrintDialog('paper')">
+          <i data-lucide="file-text"></i> 列印題目卷
+        </button>
+        <button id="btn-print-answer" class="btn-toolbar" title="列印答案卷" onclick="openPrintDialog('answer')">
+          <i data-lucide="check-square"></i> 列印答案卷
+        </button>
       </div>
       <div class="toolbar-right">
         <button id="btn-grid" class="view-btn active" title="網格檢視">
@@ -158,6 +167,23 @@
     <div class="modal-header" id="modal-header"></div>
     <div class="modal-body" id="modal-body"></div>
     <div class="modal-footer" id="modal-footer"></div>
+  </div>
+</div>
+
+<!-- ═══ PRINT DIALOG ════════════════════════════════════════════════════════ -->
+<div class="print-dialog-overlay" id="print-dialog-overlay" onclick="if(event.target===this)closePrintDialog()">
+  <div class="print-dialog" id="print-dialog">
+    <div class="print-dialog-header">
+      <h2 id="print-dialog-title">列印預覽</h2>
+      <button class="modal-close" onclick="closePrintDialog()"><i data-lucide="x"></i></button>
+    </div>
+    <div class="print-dialog-body">
+      <iframe id="print-frame" sandbox="allow-same-origin"></iframe>
+    </div>
+    <div class="print-dialog-footer">
+      <button class="btn-primary" onclick="doPrint()"><i data-lucide="printer"></i> 列印</button>
+      <button class="btn-secondary" onclick="closePrintDialog()">關閉</button>
+    </div>
   </div>
 </div>
 
