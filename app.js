@@ -32,6 +32,24 @@ const emptyEl   = $('empty-state');
 const loadMore  = $('load-more-wrap');
 const loadMoreBtn = $('load-more');
 
+// ── Sidebar drawer (mobile) ─────────────────────────────────
+function openSidebar() {
+  document.getElementById('sidebar').classList.add('open');
+  document.getElementById('sidebar-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeSidebar() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('sidebar-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('hamburger')?.addEventListener('click', openSidebar);
+  document.getElementById('sidebar-close')?.addEventListener('click', closeSidebar);
+  document.getElementById('sidebar-overlay')?.addEventListener('click', closeSidebar);
+});
+
 // ── Init ────────────────────────────────────────────────────
 async function init() {
   try {
@@ -486,19 +504,71 @@ function openPrintDialog(mode) {
   const title = mode === 'paper' ? '列印題目卷' : '列印答案卷';
   $('print-dialog-title').textContent = `${title}（${state.filtered.length} 題）`;
 
-  const html = mode === 'paper'
+  const bodyHTML = mode === 'paper'
     ? buildPaperHTML(state.filtered)
     : buildAnswerHTML(state.filtered);
 
+  // Use srcdoc for a self-contained document (avoids sandbox script restrictions)
   const frame = $('print-frame');
-  const doc = frame.contentDocument || frame.contentWindow.document;
-  doc.open();
-  doc.write(html);
-  doc.close();
+  frame.srcdoc = buildPrintDoc(bodyHTML);
 
   $('print-dialog-overlay').classList.add('open');
-  // Re-init icons
   if (window.lucide) lucide.createIcons();
+}
+
+function buildPrintDoc(bodyHTML) {
+  return `<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Noto Sans TC',sans-serif;padding:28px 36px;color:#1a1a1a;font-size:14px;line-height:1.7}
+  .paper-header{text-align:center;border-bottom:2px solid #1a1a1a;padding-bottom:14px;margin-bottom:24px}
+  .paper-header h1{font-size:19px;margin-bottom:5px}
+  .paper-header p{font-size:12px;color:#555}
+  .paper-section{margin-bottom:28px}
+  .paper-section-title{font-size:14px;font-weight:bold;margin-bottom:10px;padding-bottom:5px;border-bottom:1px solid #ddd}
+  .print-question{margin-bottom:18px;padding:12px 14px;background:#f8f9fa;border-radius:6px;page-break-inside:avoid}
+  .print-q-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px}
+  .print-q-id{font-weight:bold;color:#2c3e50;font-size:12px}
+  .badge{padding:2px 8px;border-radius:10px;color:#fff;font-size:11px;display:inline-block}
+  .bg-basic{background:#27ae60}.bg-medium{background:#f39c12}.bg-hard{background:#e74c3c}.bg-hardest{background:#8e44ad}
+  .print-question-text{font-size:14px;margin-bottom:9px}
+  .print-question-text .katex{font-size:1.05em}
+  .print-options{list-style:none}
+  .print-options li{display:flex;gap:8px;margin-bottom:4px;align-items:flex-start}
+  .print-options li .opt-label{font-weight:bold;min-width:18px}
+  .print-figure{margin-top:7px;padding:7px;background:#e8f4f8;border-radius:4px;font-size:12px;color:#2980b9}
+  .print-figure::before{content:'📷 '}
+  .answer-section{margin-top:36px;padding-top:18px;border-top:2px solid #1a1a1a}
+  .answer-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+  .answer-card{border:1px solid #ddd;border-radius:6px;padding:10px 12px}
+  .answer-card-title{font-weight:bold;margin-bottom:7px;font-size:12px;color:#2c3e50}
+  .answer-row{display:grid;grid-template-columns:26px repeat(5,1fr);gap:3px;align-items:center;margin-bottom:3px}
+  .answer-num{font-size:10px;color:#888;text-align:center}
+  .answer-cell{text-align:center;font-size:11px;padding:2px}
+  .answer-cell.header{font-weight:bold;background:#eee;border-radius:3px}
+  .answer-section{margin-top:36px;padding-top:18px;border-top:2px solid #1a1a1a}
+  .answer-header{text-align:center;border-bottom:2px solid #1e3a5f;padding-bottom:14px;margin-bottom:24px}
+  .answer-header h1{font-size:19px;color:#1e3a5f;margin-bottom:5px}
+  .answer-header p{font-size:12px;color:#555}
+  .answer-key{margin-top:32px;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden}
+  .answer-key h3{background:#f1f5f9;margin:0;padding:10px 16px;font-size:13px;color:#1e3a5f;border-bottom:1px solid #e2e8f0;font-weight:bold}
+  .answer-key-row{display:flex;justify-content:space-between;padding:6px 16px;border-bottom:1px solid #f1f5f9;font-size:13px}
+  .answer-key-row:last-child{border-bottom:none}
+  .answer-key-row span:first-child{color:#64748b}
+  .paper-footer{text-align:center;margin-top:36px;font-size:11px;color:#999;padding-top:14px;border-top:1px solid #eee}
+</style>
+</head>
+<body>
+${bodyHTML}
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script>document.addEventListener("DOMContentLoaded",function(){if(typeof renderMathInElement!=="undefined"){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false}],throwOnError:false})}});</script>
+</body>
+</html>`;
 }
 
 function closePrintDialog() {
@@ -558,56 +628,13 @@ function buildPaperHTML(questions) {
     </div>`;
   }).join('');
 
-  return `<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width"/>
-<title>題目卷</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"/>
-<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-<style>
-  body { font-family: 'Noto Sans TC', 'AR PL UMing CN', 'WenQuanYi Zen Hei', serif; font-size: 14px; line-height: 1.7; color: #111; margin: 0; padding: 20px; background: #fff; }
-  .paper-header { text-align: center; margin-bottom: 32px; border-bottom: 2px solid #1e3a5f; padding-bottom: 16px; }
-  .paper-header h1 { font-size: 22px; color: #1e3a5f; margin: 0 0 6px; }
-  .paper-header p { font-size: 13px; color: #64748b; margin: 0; }
-  .print-question { margin-bottom: 28px; page-break-inside: avoid; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; }
-  .print-question-header { background: #f1f5f9; padding: 8px 14px; font-size: 12px; font-weight: 700; color: #1e3a5f; border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px; }
-  .print-question-body { padding: 16px; }
-  .print-question-text { font-size: 15px; line-height: 1.75; margin-bottom: 12px; }
-  .print-figure-desc { background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #92400e; margin-top: 10px; border-left: 3px solid #f59e0b; }
-  .print-options { margin: 0; padding: 0; list-style: none; }
-  .print-options li { padding: 8px 12px; font-size: 14px; border-bottom: 1px solid #f1f5f9; display: flex; gap: 10px; }
-  .print-options li:last-child { border-bottom: none; }
-  .opt-label { font-weight: 700; min-width: 22px; color: #1e3a5f; }
-  .paper-footer { text-align: center; font-size: 12px; color: #94a3b8; margin-top: 32px; padding-top: 16px; border-top: 1px solid #e2e8f0; }
-  .katex-err { color: #ef4444; background: #fee2e2; padding: 1px 4px; border-radius: 3px; font-size: 12px; }
-  @media print { .print-question { break-inside: avoid; } body { padding: 0; } }
-</style>
-</head>
-<body>
+  return `
 <div class="paper-header">
   <h1>國中教育會考 數學科 題目卷</h1>
   <p>共 ${questions.length} 題 ｜ ${new Date().toLocaleDateString('zh-TW')} 自行列印</p>
 </div>
 ${rows}
-<div class="paper-footer">國中教育會考數學科題庫 ｜ 資料來源：cap.rcpet.edu.tw</div>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    if (typeof renderMathInElement !== 'undefined') {
-      renderMathInElement(document.body, {
-        delimiters: [
-          { left: '$$', right: '$$', display: true },
-          { left: '$',  right: '$',  display: false }
-        ],
-        throwOnError: false
-      });
-    }
-  });
-</script>
-</body>
-</html>`;
+<div class="paper-footer">國中教育會考數學科題庫 ｜ 資料來源：cap.rcpet.edu.tw</div>`;
 }
 
 function buildAnswerHTML(questions) {
@@ -656,44 +683,17 @@ function buildAnswerHTML(questions) {
     </div>`
   ).join('');
 
-  return `<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width"/>
-<title>答案卷</title>
-<style>
-  body { font-family: 'Noto Sans TC', serif; font-size: 14px; color: #111; margin: 0; padding: 30px; background: #fff; }
-  .answer-header { text-align: center; margin-bottom: 32px; border-bottom: 2px solid #1e3a5f; padding-bottom: 16px; }
-  .answer-header h1 { font-size: 22px; color: #1e3a5f; margin: 0 0 6px; }
-  .answer-header p { font-size: 13px; color: #64748b; margin: 0; }
-  .answer-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 20px; }
-  .answer-block { border: 1px solid #e2e8f0; border-radius: 6px; overflow: hidden; }
-  .answer-block-header { background: #1e3a5f; color: #fff; text-align: center; font-size: 11px; font-weight: 700; padding: 4px; }
-  .answer-block-body { padding: 8px 4px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; font-size: 13px; text-align: center; }
-  .answer-cell { padding: 4px 2px; font-size: 12px; }
-  .answer-cell.answered { font-weight: 700; color: #1e3a5f; }
-  .answer-key { margin-top: 32px; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; }
-  .answer-key h3 { background: #f1f5f9; margin: 0; padding: 10px 16px; font-size: 13px; color: #1e3a5f; border-bottom: 1px solid #e2e8f0; }
-  .answer-key-row { display: flex; justify-content: space-between; padding: 6px 16px; border-bottom: 1px solid #f1f5f9; font-size: 13px; }
-  .answer-key-row:last-child { border-bottom: none; }
-  .answer-footer { text-align: center; font-size: 12px; color: #94a3b8; margin-top: 24px; }
-  @media print { body { padding: 0; } .answer-grid { gap: 4px; } }
-</style>
-</head>
-<body>
+  return `
 <div class="answer-header">
   <h1>國中教育會考 數學科 答案卷</h1>
-  <p>共 ${choiceQuestions.length} 題選擇題 ｜ ${new Date().toLocaleDateString('zh-TW')} 自行列印</p>
+  <p>共 ${choiceQuestions.length} 題 ｜ ${new Date().toLocaleDateString('zh-TW')} 自行列印</p>
 </div>
-<div class="answer-grid">${yearBlocks}</div>
+${yearBlocks}
 <div class="answer-key">
-  <h3>📝 答案對照表</h3>
+  <h3>答案對照表</h3>
   ${keyRows}
 </div>
-<div class="answer-footer">國中教育會考數學科題庫 ｜ 資料來源：cap.rcpet.edu.tw</div>
-</body>
-</html>`;
+<div class="paper-footer">國中教育會考數學科題庫 ｜ 資料來源：cap.rcpet.edu.tw</div>`;
 }
 
 // ── Helpers ────────────────────────────────────────────────
